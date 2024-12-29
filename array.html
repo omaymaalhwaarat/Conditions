@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 1-Write a function to find the largest element in an array.
+    function findLargestElement(arr) {
+    if (arr.length === 0) {
+        throw new Error("The array is empty. Please provide a non-empty array.");
+    }
+    
+    let largest = arr[0]; // Assume the first element is the largest
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i]; // Update largest if a larger element is found
+        }
+    }
+    return largest;
+}
+
+// 2-Write a function to find the smallest element in an array.
+function findSmallestElement(arr) {
+    if (arr.length === 0) {
+        throw new Error("The array is empty. Please provide a non-empty array.");
+    }
+    
+    let smallest = arr[0]; // Assume the first element is the smallest
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i]; // Update smallest if a smaller element is found
+        }
+    }
+    return smallest;
+}
+
+// Example usage:
+const numbers = [10, 20, 5, 40, 25];
+console.log("The smallest element is:", findSmallestElement(numbers));
+
+// 3-Write a function to find the sum of all elements in an array.
+function findSumOfElements(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error("Input must be an array.");
+    }
+    
+    let sum = 0; // Initialize sum to 0
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]; // Add each element to the sum
+    }
+    return sum;
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 40, 50];
+console.log("The sum of all elements is:", findSumOfElements(numbers));
+
+// 4-Write a function to find the average of all elements in an array.
+function findAverageOfElements(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+        throw new Error("Input must be a non-empty array.");
+    }
+    
+    let sum = 0; // Initialize sum to 0
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]; // Add each element to the sum
+    }
+    
+    return sum / arr.length; // Divide the sum by the length of the array to get the average
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 40, 50];
+console.log("The average of all elements is:", findAverageOfElements(numbers));
+
+// 5-Write a function to find the median of all elements in an array.
+function findMedianOfElements(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+        throw new Error("Input must be a non-empty array.");
+    }
+
+    // Sort the array in ascending order
+    arr.sort((a, b) => a - b);
+
+    const n = arr.length;
+    const middle = Math.floor(n / 2);
+
+    // If the array length is odd, return the middle element
+    if (n % 2 !== 0) {
+        return arr[middle];
+    }
+
+    // If the array length is even, return the average of the two middle elements
+    return (arr[middle - 1] + arr[middle]) / 2;
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 40, 50];
+console.log("The median is:", findMedianOfElements(numbers));
+
+// 6-Write a function to remove all duplicates from an array.
+function removeDuplicates(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error("Input must be an array.");
+    }
+
+    // Use a Set to remove duplicates (sets automatically remove duplicates)
+    return [...new Set(arr)];
+}
+
+// Example usage:
+const numbers = [10, 20, 30, 20, 40, 30, 50];
+console.log("Array without duplicates:", removeDuplicates(numbers));
+
+// 7-Write a function to sort an array in ascending order.
+function sortArrayAscending(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error("Input must be an array.");
+    }
+
+    // Use the sort() method with a compare function for numerical sorting
+    return arr.sort((a, b) => a - b);
+}
+
+// Example usage:
+const numbers = [40, 10, 30, 20, 50];
+console.log("Sorted array:", sortArrayAscending(numbers));
+
+// 8-Write a function to sort an array in descending order.
+function sortArrayDescending(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error("Input must be an array.");
+    }
+
+    // Use the sort() method with a compare function for numerical sorting in descending order
+    return arr.sort((a, b) => b - a);
+}
+
+// Example usage:
+const numbers = [40, 10, 30, 20, 50];
+console.log("Sorted array in descending order:", sortArrayDescending(numbers));
+
+// 9-Write a function to shuffle the elements of an array randomly.
+function shuffleArray(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error("Input must be an array.");
+    }
+
+    // Fisher-Yates shuffle algorithm
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements at indices i and j
+    }
+    return arr;
+}
+
+// Example usage:
+const numbers = [1, 2, 3, 4, 5];
+console.log("Shuffled array:", shuffleArray(numbers));
+
+</script>
+</body>
+</html>
